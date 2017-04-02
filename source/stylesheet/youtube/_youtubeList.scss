@@ -1,0 +1,30 @@
+.youtube-list {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    li {
+      margin: 5px 5px 0 0;
+      display: inline-block;
+      color: $text-color-gray;
+      font-size: 13px;
+      border-radius: 5px;
+      border: 1px solid $border-color;
+      background-color: $bg-color;
+      padding: 5px;
+      cursor: pointer;
+      &.active {
+        color: $hover-text-color;
+        cursor: default;
+        background: $hover-bg;
+      }
+      &:hover {
+        color: $hover-text-color;
+        background-color: $hover-bg;
+      }
+    }
+  }
+}

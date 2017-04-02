@@ -3,6 +3,8 @@ import { Map } from 'immutable';
 
 // Redux logger
 const logger = createLogger({
+  level: 'info',
+  collapsed: true,
   // State transformer
   // transforms Immutable maps from reducers
   // to the plain JS objects

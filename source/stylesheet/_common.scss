@@ -1,0 +1,70 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $text-color-gray;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-color;
+}
+
+body {
+  color: $text-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+  padding: 10px;
+  background: url("../static/images/background.jpg");
+  @extend .clearfix;
+}
+
+.container {
+  background: green;
+  width: 900px;
+  margin: 0 auto;
+  @extend .clearfix;
+}
+
+.block-style {
+  margin-bottom: 10px;
+  background-color: $bg-color;
+  border-radius: 5px;
+  border: 1px solid $border-color;
+  padding: 5px;
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  .left_side {
+    background-color: $bg-color;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+    width: 18%;
+    height: 100%;
+  }
+  .center_side {
+    width: 56%;
+    padding: 0 10px;
+  }
+  .right_side {
+    width: 26%;
+  }
+}
