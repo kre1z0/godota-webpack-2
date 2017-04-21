@@ -18,6 +18,7 @@ module.exports = {
     "no-console": 0,
     "quotes": [2, "single", {"avoidEscape": true}],
     "semi": [2, "never"],
+    "react/prefer-stateless-function": [0, {ignorePureComponents: false}],
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "varsIgnorePattern": "PropTypes" }],
     "react/jsx-uses-react": 'error',
     "react/jsx-uses-vars": 2,

@@ -18,7 +18,7 @@
         color: $text-color;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.4s ease;
+        transition: $transitionEase;
         &:hover {
           background: darken($hover-bg, 44%);
         }

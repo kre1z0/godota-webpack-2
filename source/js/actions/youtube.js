@@ -17,13 +17,14 @@ export const YOUTUBE_VIDEOS_ERROR = 'YOUTUBE_VIDEOS_ERROR'
 export const LOAD_YOUTUBE_VIDEOS = 'LOAD_YOUTUBE_VIDEOS'
 export const LOAD_YOUTUBE_LOGO_INFO = 'LOAD_YOUTUBE_LOGO_INFO'
 export const YOUTUBE_SORT_ACTIVE = 'YOUTUBE_SORT_ACTIVE'
+export const SELECTED_YOUTUBE_LIST = 'SELECTED_YOUTUBE_LIST'
 
 export const GET_CHANNEL = 'GET_CHANNEL'
 
 export function getYoutubeChannelsList() {
   return (dispatch) => {
     dispatch({ type: YOUTUBE_CHANNEL_LIST_REQUEST })
-    const url = './static/json/youtube.json'
+    const url = '../../assets/json/youtube.json'
     fetch(url)
       .then(response => response.json())
       .then((data) => {
@@ -96,6 +97,10 @@ export function getYoutubeVideosFromChannel(channel) {
           dispatch({
             type: YOUTUBE_SORT_ACTIVE,
             selected: false,
+          })
+          dispatch({
+            type: SELECTED_YOUTUBE_LIST,
+            active_youtube_list: true,
           })
         }).catch((error) => {
           console.log('parsing failed 2', error)

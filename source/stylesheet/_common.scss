@@ -31,15 +31,24 @@ body {
 
 .wrapper {
   padding: 10px;
-  background: url("../static/images/background.jpg");
+  background: url("../assets/img/background.jpg");
   @extend .clearfix;
 }
 
 .container {
-  background: green;
   width: 900px;
   margin: 0 auto;
   @extend .clearfix;
+}
+
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.right-block {
+  display: block;
+  float: right;
 }
 
 .block-style {

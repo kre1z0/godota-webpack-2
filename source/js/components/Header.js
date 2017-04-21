@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link, IndexLink } from 'react-router'
 import { connect } from 'react-redux'
+import * as routes from '../routes'
 
 class Header extends Component {
   static propTypes = {
@@ -24,8 +25,13 @@ class Header extends Component {
             </IndexLink>
           </li>
           <li>
-            <Link to='/news/' activeClassName='active'>
+            <Link to={routes.routeCodes.NEWS} activeClassName='active'>
               News
+            </Link>
+          </li>
+          <li>
+            <Link to={routes.routeCodes.FORM} activeClassName='active'>
+              form
             </Link>
           </li>
         </ul>
@@ -36,7 +42,7 @@ class Header extends Component {
 
 export default connect(
   state => ({
-    twitch: state.Twitch.twitch,
+
   }),
   { },
 )(Header)

@@ -9,6 +9,7 @@ class Header extends React.Component {
     selected: React.PropTypes.bool,
     getChannelsVideos: React.PropTypes.func,
   }
+
   constructor(props) {
     super(props)
     const TODAY = moment().clone().startOf('day')
@@ -32,6 +33,7 @@ class Header extends React.Component {
       ],
     }
   }
+
   componentWillMount() {
     getChannelsVideos(this.state.youtubeSortMenu[0].publish)
   }
@@ -47,20 +49,19 @@ class Header extends React.Component {
       <div className='youtube-sort' >
         <div className='logo' />
         <ul>
-          {
-            this.state.youtubeSortMenu.map((item) => {
-              const active = classNames({ active:
-              (this.state.selectedIndex === item.name) && this.props.selected === true })
-              return (
-                <li key={item.name}
-                  className={active}
-                  onClick={() => this.handleClick(item)}
-                >
-                  {item.name}
-                </li>
-              )
+          {this.state.youtubeSortMenu.map((item) => {
+            const active = classNames({
+              active: (this.state.selectedIndex === item.name) && this.props.selected === true
             })
-          }
+            return (
+              <li key={item.name}
+                className={active}
+                onClick={() => this.handleClick(item)}
+              >
+                {item.name}
+              </li>
+            )
+          })}
         </ul>
       </div>
     )

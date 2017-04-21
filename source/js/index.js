@@ -1,21 +1,52 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, hashHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
-import './styles/core.scss'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
+import 'babel-polyfill'
+import logger from './dev/logger'
+import rootReducer from './reducers'
+import Routes from './routes'
+import DevTools from './dev/redux-dev-tools'
+import '../stylesheet/core.scss'
 
-import configureStore from './store/configureStore'
-import configureRoutes from './routes/index'
+const isProduction = process.env.NODE_ENV === 'production'
 
-export const store = configureStore(hashHistory)
-const history = syncHistoryWithStore(hashHistory, store)
+// Creating store
+let store = null
 
+if (isProduction) {
+  // In production adding only thunk middleware
+  const middleware = applyMiddleware(thunk)
+
+  store = createStore(
+    rootReducer,
+    middleware,
+  )
+} else {
+  // In development mode beside thunk
+  // logger and DevTools are added
+  const middleware = applyMiddleware(thunk, logger)
+  const enhancer = compose(
+    middleware,
+    DevTools.instrument(),
+  )
+
+  store = createStore(
+    rootReducer,
+    enhancer,
+  )
+}
+
+// Render it to DOM
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      { configureRoutes(store) }
-    </Router>
+  <Provider store={store} >
+    { isProduction ?
+      <Routes /> :
+      <div>
+        <Routes />
+        <DevTools />
+      </div> }
   </Provider>,
   document.getElementById('root'),
 )

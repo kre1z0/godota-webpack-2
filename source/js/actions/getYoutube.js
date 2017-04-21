@@ -1,7 +1,7 @@
 import 'isomorphic-fetch'
 import moment from 'moment' // http://momentjs.com/
 import * as youtube from '../constants/youtube'
-import { YOUTUBE_SORT_ACTIVE, LOAD_YOUTUBE_VIDEOS } from '../actions/youtube'
+import { YOUTUBE_SORT_ACTIVE, LOAD_YOUTUBE_VIDEOS, SELECTED_YOUTUBE_LIST } from '../actions/youtube'
 
 function filterVideos(videos, publishDate) {
   function filterByPublishDate(obj) {
@@ -58,7 +58,7 @@ function getUrl(json, publishDate) {
 
 export function getChannelsVideos(publishDate) {
   return (dispatch) => {
-    const url = './static/json/youtube.json'
+    const url = '../assets/json/youtube.json'
     fetch(url)
       .then(response => response.json())
       .then((json) => {
@@ -77,6 +77,10 @@ export function getChannelsVideos(publishDate) {
           dispatch({
             type: YOUTUBE_SORT_ACTIVE,
             selected: true,
+          })
+          dispatch({
+            type: SELECTED_YOUTUBE_LIST,
+            active_youtube_list: false,
           })
           dispatch({
             type: LOAD_YOUTUBE_VIDEOS,

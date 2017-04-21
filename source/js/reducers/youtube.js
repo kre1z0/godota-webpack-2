@@ -6,6 +6,7 @@ const initialYoutubeState = {
   channels_list: [],
   active: false,
   selected: false,
+  active_youtube_list: false,
 }
 
 const youtube = (state = initialYoutubeState, action) => {
@@ -34,6 +35,11 @@ const youtube = (state = initialYoutubeState, action) => {
       return {
         ...state,
         active: action.active,
+      }
+    case actions.SELECTED_YOUTUBE_LIST:
+      return {
+        ...state,
+        active_youtube_list: action.active_youtube_list,
       }
     case actions.YOUTUBE_SORT_ACTIVE:
       return {

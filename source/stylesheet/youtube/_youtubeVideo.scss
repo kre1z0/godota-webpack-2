@@ -37,7 +37,7 @@
       padding: 3px 10px;
       background: $bg-color;
       border-radius: 0 5px 0 5px;
-      transition: all 0.3s ease-in-out;
+      transition: $transitionEase;
     }
     .youtube-date {
       font-size: 13px;
@@ -48,7 +48,7 @@
       padding: 3px 10px;
       background: $bg-color;
       border-radius: 0 5px 0 5px;
-      transition: all 0.3s ease-in-out;
+      transition: $transitionEase;
     }
     .block-style {
       cursor: pointer;

@@ -2,6 +2,10 @@ import { GET_NEWS } from '../actions/news'
 
 const initialNewsState = {
   news_item: {},
+  initialValues: {
+    id: 'NAVI',
+    country: 'Ukraine',
+  },
 }
 
 const News = (state = initialNewsState, action) => {

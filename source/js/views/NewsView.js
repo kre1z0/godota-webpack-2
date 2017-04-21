@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { TournamentTable } from '../components/news/TournamentTable'
 
 class NewsView extends Component {
   static propTypes = {
@@ -10,6 +11,40 @@ class NewsView extends Component {
     super(props)
     this.state = {
       tournament: [
+        [
+          [
+            { team: 'navi' },
+            { team: 'vg' },
+          ],
+          [
+            { team: 'og' },
+            { team: 'lgd' },
+          ],
+          [
+            { team: 'faceless' },
+            { team: 'vp' },
+          ],
+          [
+            { team: 'empire' },
+            { team: 'luqiud' },
+          ],
+          [
+            { team: 'navi' },
+            { team: 'vg' },
+          ],
+          [
+            { team: 'og' },
+            { team: 'lgd' },
+          ],
+          [
+            { team: 'faceless' },
+            { team: 'vp' },
+          ],
+          [
+            { team: 'empire' },
+            { team: 'luqiud' },
+          ],
+        ],
         [
           [
             { team: 'navi' },
@@ -58,7 +93,6 @@ class NewsView extends Component {
   }
 
   render() {
-    console.log('tournament', this.state.tournament)
     return (
       <div className='container block-style' >
         <div className='news-block' >
@@ -68,48 +102,8 @@ class NewsView extends Component {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem doloribus dolorum eius hic ipsum! Animi
             autem debitis dolores quasi similique. Accusamus exercitationem itaque molestiae quam rerum, sunt tempore
             veritatis! Modi.</p>
-          <img src='https://i.ytimg.com/vi/IROw0ULt0cg/maxresdefault.jpg' alt='' />
-          {
-            this.state.tournament.map((item) => {
-              console.log('item', item)
-            })
-          }
-          <div className='tournament-table' >
-            <div className='col' >
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-            </div>
-            <div className='col' >
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-            </div>
-            <div className='col' >
-              <div className='match' >
-                <div className='team' >команда</div>
-                <div className='team' >команда</div>
-              </div>
-            </div>
-          </div>
+          {/*<img src='https://i.ytimg.com/vi/IROw0ULt0cg/maxresdefault.jpg' alt='' />*/}
+          <TournamentTable tournament={this.state.tournament} />
         </div>
       </div>
     )
@@ -117,6 +111,8 @@ class NewsView extends Component {
 }
 
 export default connect(
-  state => ({}),
+  state => ({
+
+  }),
   {},
 )(NewsView)

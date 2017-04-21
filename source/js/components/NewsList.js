@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import NEWS from '../static/json/news.json'
+import NEWS from '../../assets/json/news.json'
 import { getNews } from '../actions/news'
 
 class NewsList extends Component {

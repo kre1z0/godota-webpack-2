@@ -6,7 +6,6 @@ import Chat from '../components/twitch/Chat'
 import YoutubeList from '../components/youtube/YoutubeList'
 import NewsList from '../components/NewsList'
 import YoutubeVideoList from '../components/youtube/YoutubeVideos'
-import Notes from '../components/Notes'
 import Header from '../components/youtube/YoutubeSort'
 
 const Home = () => (
@@ -24,7 +23,6 @@ const Home = () => (
       <Chat />
       <Header />
       <YoutubeList />
-      <Notes />
     </div>
   </div>
 )

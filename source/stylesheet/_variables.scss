@@ -3,6 +3,9 @@ $black: #000000;
 $white: #fff;
 $blue: #0000FF;
 $azure: #235695;
+$green: #5cb85c;
+$orange: #ffcc00;
+$red: #e3170a;
 
 $border-color: #444;
 $hover-text-color: #cfcfcf;
@@ -10,6 +13,9 @@ $bg-color: #272727;
 $text-color: #fff;
 $text-color-gray: #707070;
 $hover-bg: #1f1f1f;
+
+// ➡ styles
+$transitionEase: all .3s ease;
 
 // ➡ media queries
 $xs-min : 480px;

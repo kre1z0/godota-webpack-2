@@ -1,0 +1,75 @@
+$line-width: 4px;
+$col-margin-right: 15px;
+
+.vertical-tournament-line {
+  position: absolute;
+  display: block;
+  content: '';
+  width: $line-width;
+  background: $red;
+  left: 50%;
+  margin-left: $line-width / 2;
+  z-index: -1;
+}
+
+.tournament-table {
+  display: flex;
+  flex-wrap: wrap;
+  .col {
+    margin-right: $col-margin-right;
+    .match {
+      display: flex;
+      align-items: center;
+      position: relative;
+      &:before {
+        position: absolute;
+        display: block;
+        content: '';
+        height: 4px;
+        background: $red;
+        left: 100%;
+        z-index: 1;
+        width: calc(50% + 15px + 6px);
+      }
+      .match-block {
+        width: 100%;
+        z-index: 2;
+        .team {
+          width: 100px;
+          background: $red;
+          padding: 5px 10px;
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          overflow: hidden;
+          justify-content: space-between;
+        }
+        &:before {
+          top: 25%;
+          bottom: 50%;
+          @extend .vertical-tournament-line;
+        }
+        &:after {
+          @extend .vertical-tournament-line;
+          bottom: 25%;
+          top: 50%;
+        }
+      }
+    }
+    &:last-child {
+      .match-block {
+        &:before {
+          display: none;
+        }
+        &:after {
+          display: none;
+        }
+      }
+      .match {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
