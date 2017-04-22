@@ -58,7 +58,7 @@ function getUrl(json, publishDate) {
 
 export function getChannelsVideos(publishDate) {
   return (dispatch) => {
-    const url = '../assets/json/youtube.json'
+    const url = './assets/json/youtube.json'
     fetch(url)
       .then(response => response.json())
       .then((json) => {

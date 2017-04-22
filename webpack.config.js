@@ -15,7 +15,6 @@ const isProduction = nodeEnv === 'production';
 const jsSourcePath = path.join(__dirname, './source/js');
 const buildPath = path.join(__dirname, './build');
 const imgPath = path.join(__dirname, './source/assets/img');
-const jsonPath = path.join(__dirname, './source/assets/json');
 const sourcePath = path.join(__dirname, './source');
 
 // Common plugins
@@ -58,7 +57,6 @@ const rules = [
   },
   {
     test: /\.json$/,
-    include: jsonPath,
     use: 'json-loader',
   },
   { test: /\.(woff|woff2|eot|ttf|svg)$/,
@@ -73,6 +71,7 @@ const rules = [
 if (isProduction) {
   // Production plugins
   plugins.push(
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new CopyWebpackPlugin([
       { from: path.join(sourcePath, 'assets'), to: 'assets' },
     ]),
@@ -141,14 +140,14 @@ if (isProduction) {
 }
 
 module.exports = {
-  devtool: isProduction ? 'eval' : 'source-map',
+  devtool: isProduction ? 'source-map' : 'eval',
   context: jsSourcePath,
   entry: {
     js: './index.js',
   },
   output: {
     path: buildPath,
-    publicPath: './',
+    publicPath: isProduction ? './' : '/',
     filename: 'app-[hash].js',
   },
   module: {
@@ -165,7 +164,7 @@ module.exports = {
   devServer: {
     contentBase: isProduction ? './build' : './source',
     historyApiFallback: true,
-    port: 3333,
+    port: 3000,
     compress: isProduction,
     inline: !isProduction,
     hot: !isProduction,

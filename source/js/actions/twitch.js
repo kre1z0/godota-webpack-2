@@ -14,7 +14,7 @@ export const SELECTED_TWITCH_STREAMER = 'SELECTED_TWITCH_STREAMER'
 
 export function getStreamerList() {
   return (dispatch) => {
-    fetch('../../assets/json/twitch.json').then(response => response.json())
+    fetch('./assets/json/twitch.json').then(response => response.json())
       .then((twitch) => {
         const all = []
 

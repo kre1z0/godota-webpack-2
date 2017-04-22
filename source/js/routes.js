@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import App from './containers/App'
 import Home from './views/HomeView'
 import News from './views/NewsView'
@@ -15,7 +15,7 @@ export const routeCodes = {
 export default class Routes extends Component {
   render() {
     return (
-      <Router history={browserHistory} >
+      <Router history={hashHistory} >
         <Route path={publicPath} component={App} >
           <IndexRoute component={Home} />
           <Route path={routeCodes.NEWS} component={News} />

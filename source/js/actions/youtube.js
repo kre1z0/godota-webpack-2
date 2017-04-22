@@ -24,7 +24,7 @@ export const GET_CHANNEL = 'GET_CHANNEL'
 export function getYoutubeChannelsList() {
   return (dispatch) => {
     dispatch({ type: YOUTUBE_CHANNEL_LIST_REQUEST })
-    const url = '../../assets/json/youtube.json'
+    const url = './assets/json/youtube.json'
     fetch(url)
       .then(response => response.json())
       .then((data) => {
